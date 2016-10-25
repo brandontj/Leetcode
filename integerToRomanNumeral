@@ -1,0 +1,129 @@
+import java.util.Scanner;
+
+/**
+ * Convert an integer to roman numerals
+ */
+public class roman {
+   public static void main(String args []){
+        int input;
+        String roman;
+        Scanner in= new Scanner(System.in);
+        System.out.println("Enter a number to convert from an integer to roman numeral");
+        input=in.nextInt();
+        roman=convert(input);
+        System.out.print(roman);
+    }
+    private static String convert(int input){
+        String tempRoman="";
+        int temp;
+        if(input>=1000){
+            temp=input%1000;
+            temp=input-temp;
+            for(int i=0; i<temp; i+=1000) {
+                input-=1000;
+                tempRoman += "M";
+            }
+        }
+        if(input>=900){
+            temp=input%900;
+            temp=input-temp;
+            temp/=temp;
+            for(int i=0; i<temp; i++) {
+                input-=900;
+                tempRoman += "CM";
+            }
+        }
+        if(input>=500){
+            temp=input%500;
+            temp=input-temp;
+            temp/=temp;
+            for(int i=0; i<temp; i++) {
+                input-=500;
+                tempRoman += "D";
+            }
+        }
+        if(input>=400){
+            temp=input%400;
+            temp=input-temp;
+            temp/=temp;
+            for(int i=0; i<temp; i++) {
+                input-=400;
+                tempRoman += "CD";
+            }
+        }
+
+        if(input>=100){
+            temp=input%100;
+            temp=input-temp;
+            temp/=temp;
+            for(int i=0; i<temp; i++) {
+                input-=100;
+                tempRoman += "C";
+            }
+        }
+        if(input>=90){
+            temp=input%90;
+            temp=input-temp;
+            temp/=temp;
+            for(int i=0; i<temp; i++) {
+                input-=90;
+                tempRoman += "XC";
+            }
+        }
+
+        if(input>=50){
+            temp=input%50;
+            temp=input-temp;
+            temp/=temp;
+            for(int i=0; i<temp; i++) {
+                input-=50;
+                tempRoman += "L";
+            }
+        }
+        if(input>=40){
+            temp=input%40;
+            temp=input-temp;
+            temp/=temp;
+            for(int i=0; i<temp; i++) {
+                input-=40;
+                tempRoman += "XL";
+            }
+        }
+        if(input>=10){
+            temp=input%10;
+            temp=input-temp;
+            temp/=temp;
+            for(int i=0; i<temp; i++) {
+                    input-=10;
+                    tempRoman += "X";
+            }
+        }
+        if(input>=5){
+            temp=input%5;
+            temp=input-temp;
+            if(input==9){
+                tempRoman +="IX";
+                input=0;
+            }
+            else{
+                temp/=temp;
+                for(int i=0; i<temp; i++) {
+                    input-=5;
+                    tempRoman += "V";
+                }
+            }
+        }
+        if(input>=1){
+            if(input==4){
+                tempRoman +="IV";
+            }
+            else{
+                for(int i=0; i<input; i++) {
+                    tempRoman += "I";
+                }
+            }
+        }
+        return tempRoman;
+    }
+
+}
