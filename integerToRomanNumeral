@@ -13,112 +13,104 @@ public class roman {
         roman=convert(input);
         System.out.print(roman);
     }
-    private static String convert(int input){
+    private static String convert(int num){
         String tempRoman="";
         int temp;
-        if(input>=1000){
-            temp=input%1000;
-            temp=input-temp;
+        int temp2;
+      if(num>=1000){
+            temp=num%1000;
+            temp=num-temp;
             for(int i=0; i<temp; i+=1000) {
-                input-=1000;
+                num-=1000;
                 tempRoman += "M";
             }
         }
-        if(input>=900){
-            temp=input%900;
-            temp=input-temp;
-            temp/=temp;
-            for(int i=0; i<temp; i++) {
-                input-=900;
+        if(num>=900){
+            temp=num%900;
+            temp=num-temp;
+            for(int i=0; i<temp; i+=900) {
+                num-=900;
                 tempRoman += "CM";
             }
         }
-        if(input>=500){
-            temp=input%500;
-            temp=input-temp;
-            temp/=temp;
-            for(int i=0; i<temp; i++) {
-                input-=500;
+        if(num>=500){
+            temp=num%500;
+            temp=num-temp;
+            for(int i=0; i<temp; i+=500) {
+                num-=500;
                 tempRoman += "D";
             }
         }
-        if(input>=400){
-            temp=input%400;
-            temp=input-temp;
-            temp/=temp;
-            for(int i=0; i<temp; i++) {
-                input-=400;
+        if(num>=400){
+            temp=num%400;
+            temp=num-temp;
+            for(int i=0; i<temp; i+=400) {
+                num-=400;
                 tempRoman += "CD";
             }
         }
 
-        if(input>=100){
-            temp=input%100;
-            temp=input-temp;
-            temp/=temp;
-            for(int i=0; i<temp; i++) {
-                input-=100;
+        if(num>=100){
+            temp=num%100;
+            temp=num-temp;
+            for(int i=0; i<temp; i+=100) {
+                num-=100;
                 tempRoman += "C";
             }
         }
-        if(input>=90){
-            temp=input%90;
-            temp=input-temp;
-            temp/=temp;
-            for(int i=0; i<temp; i++) {
-                input-=90;
+        if(num>=90){
+            temp=num%90;
+            temp=num-temp;
+            for(int i=0; i<temp; i+=90) {
+                num-=90;
                 tempRoman += "XC";
             }
         }
 
-        if(input>=50){
-            temp=input%50;
-            temp=input-temp;
-            temp/=temp;
-            for(int i=0; i<temp; i++) {
-                input-=50;
+        if(num>=50){
+            temp=num%50;
+            temp=num-temp;
+            for(int i=0; i<temp; i+=50) {
+                num-=50;
                 tempRoman += "L";
             }
         }
-        if(input>=40){
-            temp=input%40;
-            temp=input-temp;
-            temp/=temp;
-            for(int i=0; i<temp; i++) {
-                input-=40;
+        if(num>=40){
+            temp=num%40;
+            temp=num-temp;
+            for(int i=0; i<temp; i+=40) {
+                num-=40;
                 tempRoman += "XL";
             }
         }
-        if(input>=10){
-            temp=input%10;
-            temp=input-temp;
-            temp/=temp;
-            for(int i=0; i<temp; i++) {
-                    input-=10;
+        if(num>=10){
+            temp=num%10;
+            temp=num-temp;
+            for(int i=0; i<temp; i+=10) {
+                    num-=10;
                     tempRoman += "X";
             }
         }
-        if(input>=5){
-            temp=input%5;
-            temp=input-temp;
-            if(input==9){
+        if(num>=5){
+            temp=num%5;
+            temp=num-temp;
+            if(num==9){
                 tempRoman +="IX";
-                input=0;
+                num=0;
             }
             else{
-                temp/=temp;
-                for(int i=0; i<temp; i++) {
-                    input-=5;
+                for(int i=0; i<temp; i+=5) {
+                    num-=5;
                     tempRoman += "V";
                 }
             }
         }
-        if(input>=1){
-            if(input==4){
+        if(num>=1){
+            if(num==4){
                 tempRoman +="IV";
             }
             else{
-                for(int i=0; i<input; i++) {
+                for(int i=0; i<num; i++) {
                     tempRoman += "I";
                 }
             }
