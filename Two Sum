@@ -1,0 +1,21 @@
+/*
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+You may assume that each input would have exactly one solution.
+*/
+public class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] done = new int[2];
+   Map<Integer,Integer> x= new HashMap<Integer, Integer>();
+   for(int i=0; i<nums.length; i++){
+       x.put(nums[i],i);
+   }
+   for(int i=0; i< nums.length; i++){
+      int aim=target-nums[i];
+       if(x.containsKey(aim) && x.get(aim)!=i){
+           done[0]=i;
+           done[1]=x.get(aim);
+       }
+   }
+   return done;
+    }
+}
